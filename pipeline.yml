@@ -1,0 +1,45 @@
+---
+resource_types:
+- name: artifactory
+  type: docker-image
+  source:
+    repository: pivotalservices/artifactory-resource
+
+resources:
+- name: source-code-resource
+  type: git
+  source:
+    uri: {{source-code-resource-uri}}
+- name: pipeline-resource
+  type: git
+  source:
+    uri: {{pipeline-resource-uri}}
+    branch: {{pipeline-resource-branch}}
+- name: artifact-repository
+  type: artifactory
+  source:
+    endpoint: {{repo-uri}}
+    repository: "/hello"
+    regex: {{artifact-id}}-(?<version>.*).{{artifact-type}}
+    username: {{repo-username}}
+    password: {{repo-password}}
+    skip_ssl_verification: true
+
+jobs:
+- name: job-build-and-verify
+  plan:
+  - get: source-code-resource
+    trigger: true
+  - get: pipeline-resource
+  - task: build-and-verify
+    file: pipeline-resource/tasks/maven-build.yml
+    input_mapping: {source-code: source-code-resource, pipeline: pipeline-resource}
+    params:
+      M2_SETTINGS_REPO_ID : {{repo-id}}
+      M2_SETTINGS_REPO_USERNAME : {{repo-username}}
+      M2_SETTINGS_REPO_PASSWORD : {{repo-password}}
+      M2_SETTINGS_REPO_RELEASE_URI : {{repo-uri}}/{{repo-release}}
+      M2_SETTINGS_REPO_SNAPSHOT_URI : {{repo-uri}}/{{repo-snapshot}}
+  - put: artifact-repository
+      params:
+        file: ./source-code-resource/target/{{artifact-id}}-*.{{artifact-type}}
