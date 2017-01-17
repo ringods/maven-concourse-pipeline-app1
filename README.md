@@ -30,3 +30,23 @@ fly -t plan1 sp -p 04_install_built_artifact -c ../maven-concourse-pipeline/pipe
 **Trigger pipeline**
 
 We manually trigger it or via a commit, lets try to make a small change to our application and push that change.
+
+## Step 20_deploy_and_verify
+
+We create an orphan branch where we are going to keep the acceptance tests, we could have dedicated a separate repository.
+```
+git checkout --orphan acceptance-test
+git rm --cached -r .
+rm -rf *
+rm .gitignore .gitmodules
+touch README.md
+git add .
+git commit -m "new branch"
+git push origin acceptance-test
+```
+
+And we clone it onto a separate folder because we want to create in the source code and in the acceptance tests at the same time.
+
+```
+git clone -b acceptance-test https://github.com/MarcialRosales/maven-concourse-pipeline-app1 maven-concourse-pipeline-app1-test
+```
