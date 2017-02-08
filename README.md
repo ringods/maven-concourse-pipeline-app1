@@ -50,3 +50,18 @@ And we clone it onto a separate folder because we want to create in the source c
 ```
 git clone -b acceptance-test https://github.com/MarcialRosales/maven-concourse-pipeline-app1 maven-concourse-pipeline-app1-test
 ```
+
+## Step 40_provision_infra_with_terraform
+
+We create an orphan branch where we are going to keep the terraform definitions for all the environments. We could have created a separate repository for each environment but we preferred to keep it simple for now.
+
+```
+git checkout --orphan terraform
+git rm --cached -r .
+rm -rf *
+rm .gitignore .gitmodules
+touch README.md
+git add .
+git commit -m "new branch"
+git push origin terraform
+```
