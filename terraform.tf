@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "${var.S3_BUCKET}"
-    key = "${var.S3_KEY}"
+    bucket = "maven-concourse-pipeline"
+    key = "test"
   }
 }
 
