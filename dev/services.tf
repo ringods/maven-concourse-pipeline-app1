@@ -6,7 +6,6 @@ data "cf_service_plan" "redis" {
     service = "${data.cf_service.redis.id}"
 }
 
-
 output "redis_id" {
   value = "${data.cf_service.redis.id}"
 }
