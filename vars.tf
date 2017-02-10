@@ -2,7 +2,7 @@
 
 variable "api_url" {}
 variable "admin_user" {}
-variable "admin_password" {}
+variable "ADMIN_PASSWORD" {}
 variable "uaa_admin_user" {}
 variable "uaa_admin_client_secret" {}
 
