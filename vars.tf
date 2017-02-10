@@ -7,6 +7,6 @@ variable "uaa_admin_user" {}
 variable "uaa_admin_client_secret" {}
 
 # S3 remote state 
-variable "s3_bucket" {}
-variable "s3_key" {}
+variable "S3_BUCKET" {}
+variable "S3_KEY" {}
 
