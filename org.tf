@@ -1,17 +1,17 @@
 
-data "cf_org" "pcfdev-org" {
+data "cf_org" "org" {
     name = "pcfdev-org"
 }
 
-data "cf_space" "pcfdev-space" {
+data "cf_space" "dev" {
     name = "pcfdev-space"
-    org = "${data.cf_org.pcfdev-org.id}"
+    org = "${data.cf_org.org.id}"
 }
 
 output "domain_id" {
-  value = "${data.cf_org.pcfdev-org.id}"
+  value = "${data.cf_org.org.id}"
 
 }
-output "space_id" {
-  value = "${data.cf_space.pcfdev-space.id}"
+output "dev_space_id" {
+  value = "${data.cf_space.dev.id}"
 }
