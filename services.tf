@@ -15,6 +15,6 @@ output "redis_plan_id" {
 
 resource "cf_user_provided_service" "syslog" {
 	name = "syslog"
-  space = "${cf_space.dev.id}"
+  space = "${data.cf_space.dev.id}"
   syslogDrainURL = "syslog://logs3.papertrailapp.com:28020"
 }
