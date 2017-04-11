@@ -49,6 +49,23 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+				<descriptors>
+            <descriptor>src/assembly/site.xml</descriptor>
+        </descriptors>
+        </configuration>
+				<executions>
+				  <execution>
+            <id>make-site-tarball</id>
+            <phase>site</phase> <!-- bind to the site phase -->
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
 		</plugins>
 	</build>
 	<reporting>
