@@ -56,37 +56,8 @@
             <descriptor>src/assembly/site.xml</descriptor>
         </descriptors>
         </configuration>
-				<executions>
-				  <execution>
-            <id>make-site-tarball</id>
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
 		</plugins>
 	</build>
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<reportSets>
-					<reportSet>
-						<reports><!-- select reports -->
-							<report>index</report>
-
-						</reports>
-					</reportSet>
-				</reportSets>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-report-plugin</artifactId>
-
-			</plugin>
-		</plugins>
-	</reporting>
 
 </project>
