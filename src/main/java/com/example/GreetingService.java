@@ -15,6 +15,6 @@ public class GreetingService {
 	}
 
 	public String welcome(String name) {
-		return String.format("hello " + greeting, name);  
+		return String.format(greeting, name);  
 	}
 }
