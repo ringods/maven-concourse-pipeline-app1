@@ -8,13 +8,13 @@ public class GreetingService {
 
 	public GreetingService() {
 	}
-	
+
 	public GreetingService(String greeting) {
 		super();
 		this.greeting = greeting;
 	}
 
 	public String welcome(String name) {
-		return String.format("bug " + greeting, name);  
+		return String.format("hello " + greeting, name);  
 	}
 }
