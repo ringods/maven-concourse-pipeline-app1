@@ -43,7 +43,18 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>2d386083c71c-releases</name>
+        <url>http://127.0.0.1:8081/artifactory/releases</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>2d386083c71c-snapshots</name>
+        <url>http://127.0.0.1:8081/artifactory/releases</url>
+    </snapshotRepository>
+</distributionManagement>
 	<build>
 		<plugins>
 			<plugin>
