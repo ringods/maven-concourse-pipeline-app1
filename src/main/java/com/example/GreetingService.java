@@ -15,6 +15,7 @@ public class GreetingService {
 	}
 
 	public String welcome(String name) {
+		// Adding some docs here.
 		return String.format(greeting, name);  
 	}
 }
